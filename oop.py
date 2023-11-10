@@ -25,7 +25,7 @@ print(emp2, emp2.email)
 
 #so instead of having all these lines we can just put them into constructor __init__ so that everytime it automatically does it for us
 class Employee:
-
+    num_of_emps = 0 #This will allow us to keep track of the number of employees we have 
     raise_amount = 1.4 # this is called a class variable 
     def __init__(self, first, last, pay)
     self.first = first #it does not matter for us to have it the same as the argument so I can change it to self.fname = name or anything else 
@@ -33,7 +33,8 @@ class Employee:
     self.pay = pay 
     self.emai = first +"."+ last + "@company.com"
 
-
+    Employee.num_of_emps += 1 # we need to put it in the __init__ bcz __init__ runs each time when an instance is created 
+    # so it will automatically updates it 
 emp1 = Employee() # now when I call the Employee the emp1 automatically goes to self so the arguments would be like emp1.name and etc
 emp2 = Employee() # same for this line 
 
@@ -79,4 +80,12 @@ print(emp1.pay)
 print(Employee.raise_amount) #This will dircetly go to the class and prints the variable set which is raise_amount 
 print(emp1.raise_amount) #This will check if emp1 has raise_amount attribute which does not so it goes to check if class itself has and when it see that it has it prints that for us
 print(emp2.raise_amount) #This does the same
+
+
+print(emp1.__dict__) #This will print out all the arguments of the __init__ 
+
+Employee.raise_amount = 1.05 #This reasign the value for the raise amount so when we want to print ot changes the value
+# for the instances of classes too such as emp1 and emp2
+
+emp1.raise_amount = 1.05 # this is going to only change the value for the emp1
 
