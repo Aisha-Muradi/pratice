@@ -25,6 +25,8 @@ print(emp2, emp2.email)
 
 #so instead of having all these lines we can just put them into constructor __init__ so that everytime it automatically does it for us
 class Employee:
+
+    raise_amount = 1.4 # this is called a class variable 
     def __init__(self, first, last, pay)
     self.first = first #it does not matter for us to have it the same as the argument so I can change it to self.fname = name or anything else 
     self.last = last
@@ -59,3 +61,22 @@ print(emp2.Fullname()) # now if we want to access another employee we simply jus
 # the two line below is exactly the same 
 emp1.Fullname() # we assigned emp1 to Employee and then we called it / we also don't need to pass self which is instance inside the ()
 Employee.Fullname(emp1) # we can directly call the class and what attrubites we want but inside the () we should put the instance we want 
+
+#some of the things among our instance of a class can be the same and those variable are known as shared 
+
+    def apply_raise(self): 
+        self.pay = int(self.pay * raise_amount) # self.pay has a value at the beginning so here we sort of reassign it to a new value 
+        # we also can't have return because (???)
+        # notice how we used raise_amount instead of the value but this is going to give us an error bcz we have to call a variable with it's class 
+        self.pay = int(self.pay * self.raise_amount) # we can either say Employee.raise_amount or self.raise-amount
+
+print(emp1.pay) # this is going to print the value we assigned in the __init__
+emp1.apply_raise()
+print(emp1.pay)
+
+#the below code will print the same value of 1.04
+
+print(Employee.raise_amount) #This will dircetly go to the class and prints the variable set which is raise_amount 
+print(emp1.raise_amount) #This will check if emp1 has raise_amount attribute which does not so it goes to check if class itself has and when it see that it has it prints that for us
+print(emp2.raise_amount) #This does the same
+
