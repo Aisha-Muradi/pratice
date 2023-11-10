@@ -89,3 +89,5 @@ Employee.raise_amount = 1.05 #This reasign the value for the raise amount so whe
 
 emp1.raise_amount = 1.05 # this is going to only change the value for the emp1
 
+print(Employee.num_of_emps) #This will return the number of instances created with the class which in this case it is emp1 and emp2
+
