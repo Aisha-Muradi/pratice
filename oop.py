@@ -34,3 +34,28 @@ class Employee:
 
 emp1 = Employee() # now when I call the Employee the emp1 automatically goes to self so the arguments would be like emp1.name and etc
 emp2 = Employee() # same for this line 
+
+emp1 = Employee("Ben", "hum", 50000) # we can put the arguments 
+emp2 = Employee("Charlie", "Young", 10000)
+
+print(emp1.email)
+print(emp2.email)
+
+print("{} {}".format(emp1.first, emp1.last)) # the format function here takes whatever we put inside the argument and puts them in order each time it sees {}
+
+#  want to turn the print statment above into a method of this class 
+
+    def Fullname(self): #every method always takes the instance of the class (self) otherwise it gives error
+        return "{} {}".format(emp1.first, emp1.last) # instead of only returning emp1 all the time we would put self so it changes based on input
+        #insteas 
+        return "{} {}".format(self.first, self.last)
+
+
+print(emp1.Fullname()) #we use peranthesis bcz it is a method if it was just an attribute we would not put ()
+
+print(emp2.Fullname()) # now if we want to access another employee we simply just change the 1 to 2
+
+
+# the two line below is exactly the same 
+emp1.Fullname() # we assigned emp1 to Employee and then we called it / we also don't need to pass self which is instance inside the ()
+Employee.Fullname(emp1) # we can directly call the class and what attrubites we want but inside the () we should put the instance we want 
