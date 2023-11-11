@@ -14,7 +14,8 @@ class Employee:
         return "{} {}".format(self.first, self.last)
 
     def apply_raise(self):
-        self.pay = int(self.pay * self.raise_amount)
+        self.pay = int(self.pay * self.raise_amount) # we don't need return bcz we are just going to uodate the self.pay 
+        # if you are doing operation or math in the function you use return otherwise it is just going to update the value 
 
 emp1 = Employee("Ben", "hum", 50000) 
 emp2 = Employee("Charlie", "Young", 10000)
@@ -35,4 +36,6 @@ print(emp1.raise_amount)
 print(emp2.raise_amount)
 print(emp1.__dict__)
 print(Employee.num_of_emps)
+
+print(emp1)
 

@@ -70,6 +70,27 @@
 #         count = count + 1
 # print("??? Count:", count)
 
-iClicker = {'Molly': [1,0,1], 'Adam':[1,1,1],'Sam':[0,1,1]}
-for k in iClicker.keys():
-    print( k )
+# iClicker = {'Molly': [1,0,1], 'Adam':[1,1,1],'Sam':[0,1,1]}
+# for k in iClicker.keys():
+#     print( k )
+
+year = 2021 
+is_CSCI_major = True 
+print(year >= 2022) 
+print(is_CSCI_major or year >= 2022) #why this prints true however if we compare is_CSCI_major to the 2022 it should be false ?
+print(is_CSCI_major and year >= 2022)
+
+
+def silly_voice(s):
+    temp = ""
+    i = 0
+    #Why do we have i i here if the value does not change throughout the loop 
+    for c in s:
+        if (i%2) == 0:
+    #for any string s, calling s.upper() returns a version of s where all
+    # the letters are upper-case
+            temp = temp + c.upper() # c is every capital of string and it will do the capital 
+        else:
+            temp = temp + c
+        i = i+1 # instead of i we could have len to see the length and i here it is keeping track of where we are in string
+    return temp
